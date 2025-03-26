@@ -41,11 +41,14 @@ Este proyecto implementa un sistema completo de **registro** y **validación (lo
 
 ### Prueba
 
+`POST http://localhost:3000/register`
+
 ```json
-POST http://localhost:3000/register
+
 {
   "email": "test@example.com",
   "password": "123456",
   "rol": "Full Stack Developer",
   "lenguaje": "JavaScript"
 }
+```
