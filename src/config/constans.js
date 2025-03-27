@@ -5,6 +5,6 @@
 // }
 
 export const ENDPOINT = {
-  users: 'http://localhost:3000/register',
-  login: 'http://localhost:3000/login'
+  login: 'http://localhost:3000/login',
+  register: 'http://localhost:3000/register'
 }

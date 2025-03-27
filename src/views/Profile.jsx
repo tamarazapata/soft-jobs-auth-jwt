@@ -11,13 +11,19 @@ const Profile = () => {
   const getDeveloperData = () => {
     const token = window.sessionStorage.getItem('token')
     axios.get(ENDPOINT.users, { headers: { Authorization: `Bearer ${token}` } })
-      .then(({ data: [user] }) => setDeveloper({ ...user }))
+      .then(({ data }) => setDeveloper(data))
       .catch(({ response: { data } }) => {
         console.error(data)
         window.sessionStorage.removeItem('token')
         setDeveloper(null)
         navigate('/')
       })
+  }
+
+  const handleLogout = () => {
+    window.sessionStorage.removeItem('token')
+    setDeveloper(null)
+    navigate('/')
   }
 
   useEffect(getDeveloperData, [])

@@ -9,6 +9,7 @@ const loginUser = async (req, res) => {
     if (!user) {
         return res.status(404).json({ message: "el usuario o la password son incorrectas" });
     }
+    console.log(user)
     const isPasswordValid = bcrypt.compareSync(password, user.password);
     if (!isPasswordValid) {
         return res.status(404).json({ message: "no autorizado" });

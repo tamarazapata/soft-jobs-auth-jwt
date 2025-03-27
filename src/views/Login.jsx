@@ -29,13 +29,16 @@ const Login = () => {
       .then(({ data }) => {
         window.sessionStorage.setItem('token', data.token)
         window.alert('Usuario identificado con éxito 😀.')
-        setDeveloper({})
-        navigate('/perfil')
+        window.sessionStorage.setItem('token', data.token)
+        setDeveloper(data.userWithoutPassword)
+        navigate('/perfil') 
       })
-      .catch(({ response: { data } }) => {
-        console.error(data)
-        window.alert(`${data.message} 🙁.`)
+      .catch((error) => {
+        console.error(error)
+        const errorMsg = error?.response?.data?.message || "Error al iniciar sesión"
+        window.alert(`${errorMsg} 🙁.`)
       })
+      
   }
 
   return (
